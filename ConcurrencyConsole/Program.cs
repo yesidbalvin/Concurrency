@@ -1,10 +1,10 @@
 ﻿namespace ConcurrencyConsole
 {
-    using System;
-    using System.IO;
     using Concurrency.Infrastructure.Extensions;
     using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+    using System;
+    using System.IO;
 
     public class Program
     {
@@ -20,10 +20,13 @@
         private static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-
-            var serviceProvider = new ServiceCollection()
-                    .AddRepositories(Configuration);
-            
+            var host = CreateHostBuilder(args).Build();
+            host.Run();            
         }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+            .ConfigureServices((_, services) =>
+            services.AddRepositories(Configuration));
     }
 }
