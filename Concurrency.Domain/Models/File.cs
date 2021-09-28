@@ -7,6 +7,7 @@
     {
         public Guid Id { get; set; }
         public string FileType { get; set; }
+        public Guid ObservationId { get; set; }
         public ICollection<Metadata> FileMetadata { get; set; }
     }
 }

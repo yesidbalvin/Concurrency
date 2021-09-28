@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -16,6 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Concurrency.Application\Concurrency.Application.csproj" />
+    <ProjectReference Include="..\Concurrency.Domain\Concurrency.Domain.csproj" />
     <ProjectReference Include="..\Concurrency.Infrastructure\Concurrency.Infrastructure.csproj" />
   </ItemGroup>
 
